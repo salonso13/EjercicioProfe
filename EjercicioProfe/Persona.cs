@@ -27,7 +27,17 @@ namespace EjercicioProfe
             this.fechanac = fechanac;
         }
 
-        public static void CrearPerso()
+        public Persona() { }
+
+        public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Apellidos { get; set; }
+        public string Dni { get; set; }
+        public string Domicilio { get; set; }
+        public int Edad { get; set; }
+        public string Fechanac { get; set; }
+
+        public static Persona CrearPerso()
         {
             int id = 0;
             string nombre = "";
@@ -41,46 +51,37 @@ namespace EjercicioProfe
             Persona persona = new Persona(id,nombre,apellidos,dni,domicilio, edad,fechanac);
             
             //Aumento el id por cada vez que se cree una Persona
-            persona.id++;
+            persona.Id++;
 
             //Introduzco el nombre.
             Console.WriteLine("Introducir nombre: ");
-            persona.nombre = Console.ReadLine();
+            persona.Nombre = Console.ReadLine();
 
             //Introduzco los apellidos
             Console.WriteLine("Introducir apellidos: ");
-            persona.apellidos = Console.ReadLine();
+            persona.Apellidos = Console.ReadLine();
 
             //Introduzco DNI
             Console.WriteLine("Introducir DNI: ");
-            persona.dni = Console.ReadLine();
+            persona.Dni = Console.ReadLine();
 
             //Introduzco domicilio
             Console.WriteLine("Introducir domicilio: ");
-            persona.domicilio = Console.ReadLine();
+            persona.Domicilio = Console.ReadLine();
 
             //Introduzco edad
             Console.WriteLine("Introducir edad: ");
-            persona.edad = Convert.ToInt32(Console.ReadLine());
+            persona.Edad = Convert.ToInt32(Console.ReadLine());
 
             //Introduzco la fecha de nacimiento
             Console.WriteLine("Introducir fecha nacimiento (DD de MM de YY): ");
-            persona.fechanac = Console.ReadLine();
+            persona.Fechanac = Console.ReadLine();
+
+            return persona;
         }
 
-        public static void EditarPerso()
+        public static void EditarPerso(Persona persona)
         {
-            int id = 0;
-            string nombre = "";
-            string apellidos = "";
-            string dni = "";
-            string domicilio = "";
-            int edad = 0;
-            string fechanac = "";
-
-            //Creo el objeto Persona
-            Persona persona = new Persona(id, nombre, apellidos, dni, domicilio, edad, fechanac);
-
             int opcion = 0;
             do
             {
@@ -99,27 +100,27 @@ namespace EjercicioProfe
                     {
                         case 1:
                             Console.WriteLine("Introducir nombre: ");
-                            persona.nombre = Console.ReadLine();
+                            persona.Nombre = Console.ReadLine();
                             break;
                         case 2:
                             Console.WriteLine("Introducir apellidos: ");
-                            persona.apellidos = Console.ReadLine();
+                            persona.Apellidos = Console.ReadLine();
                             break;
                         case 3:
                             Console.WriteLine("Introducir DNI: ");
-                            persona.dni = Console.ReadLine();
+                            persona.Dni = Console.ReadLine();
                             break;
                         case 4:
                             Console.WriteLine("Introducir domicilio: ");
-                            persona.domicilio = Console.ReadLine(); ;
+                            persona.Domicilio = Console.ReadLine(); ;
                             break;
                         case 5:
                             Console.WriteLine("Introducir edad: ");
-                            persona.edad = Convert.ToInt32(Console.ReadLine());
+                            persona.Edad = Convert.ToInt32(Console.ReadLine());
                             break;
                         case 6:
                             Console.WriteLine("Introducir fecha nacimiento (DD de MM de YY): ");
-                            persona.fechanac = Console.ReadLine();
+                            persona.Fechanac = Console.ReadLine();
                             break;
                         default:
                             Console.WriteLine("Opcion no valida, vuelva a intentarlo");

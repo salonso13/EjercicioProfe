@@ -11,6 +11,8 @@ namespace EjercicioProfe
         public static void MostrarMenu()
         {
             Menu menu = new Menu();
+            Cuenta cuenta = new Cuenta();
+            Persona persona = new Persona();
             
 
             int opcion = 0;
@@ -35,22 +37,22 @@ namespace EjercicioProfe
                             Persona.CrearPerso();
                             break;
                         case 2:
-                            Cuenta.CrearCuenta();
+                            cuenta = Cuenta.CrearCuenta();
                             break;
                         case 3:
-                            Cuenta.MostrarCuenta();
+                            Cuenta.MostrarCuenta(cuenta);
                             break;
                         case 4:
-                            Persona.EditarPerso();
+                            Persona.EditarPerso(persona);
                             break;
                         case 5:
-                            Cuenta.Ingresar();
+                            Cuenta.Ingresar(cuenta);
                             break;
                         case 6:
-                            Cuenta.Retirar();
+                            Cuenta.Retirar(cuenta);
                             break;
                         case 7:
-                            Cuenta.Transferir();
+                            Cuenta.Transferir(cuenta);
                             break;
                         default:
                             Console.WriteLine("Opcion no valida, vuelva a intentarlo");

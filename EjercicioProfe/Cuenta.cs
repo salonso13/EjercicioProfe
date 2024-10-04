@@ -18,14 +18,15 @@ namespace EjercicioProfe
             this.saldo = saldo;
             this.fechacrea = fechacrea;
         }
+        
+        public Cuenta() { }
 
         public string Iban { get; set; }
-
         public string Fechacrea { get;set; }
 
         public long Saldo { get; set; }
 
-        public static void CrearCuenta()
+        public static Cuenta CrearCuenta()
         {
             string iban = "";
             string fechacrea = "";
@@ -37,7 +38,7 @@ namespace EjercicioProfe
             //Lo separo en dos por la longitud y luego lo almaceno en un string
             long iban1 = rnd.NextInt64(1111111111, 9999999999);
             long iban2 = rnd.NextInt64(1111111111, 9999999999);
-            cuenta.Iban = iban1 + " " + iban2;
+            cuenta.Iban = "ES 33" + iban1 + " " + iban2;
 
             //Introduzco fecha creacion
             Console.WriteLine("Introducir fecha actual (DD de MM de YYYY)");
@@ -45,15 +46,12 @@ namespace EjercicioProfe
 
             //Creo un numero aleatorio para la cantidad
             cuenta.Saldo = rnd.NextInt64(0000000000, 9999999999);
+
+            return cuenta;
         }
 
-        public static void MostrarCuenta()
+        public static void MostrarCuenta(Cuenta cuenta)
         {
-            string iban = "";
-            string fechacrea = "";
-            long saldo = 0;
-            Cuenta cuenta = new Cuenta(iban, fechacrea, saldo);
-
             int opcion = 0;
             do
             {
@@ -69,7 +67,7 @@ namespace EjercicioProfe
                     switch (opcion)
                     {
                         case 1:
-                            Console.WriteLine("Tu IBAN ES: " + "ES33 " + cuenta.Iban);
+                            Console.WriteLine("Tu IBAN es: " + cuenta.Iban);
                             break;
                         case 2:
                             Console.WriteLine("Creaste la cuenta el " + cuenta.Fechacrea);
@@ -90,23 +88,18 @@ namespace EjercicioProfe
 
         }
 
-        public static void Ingresar()
+        public static void Ingresar(Cuenta cuenta)
         {
             Boolean ingresado = false;
+            Console.WriteLine("Cantidad a ingresar");
+            long ingresar = Convert.ToInt64(Console.ReadLine());
+            Console.WriteLine("Se va ha ingresar un total de: " + ingresar);
+            Console.WriteLine("¿Es correcta al cantidad?");
+            string pregunta = Console.ReadLine();
             do
             {
                 try
                 {
-                    string iban = "";
-                    string fechacrea = "";
-                    long saldo = 0;
-                    Cuenta cuenta = new Cuenta(iban, fechacrea, saldo);
-
-                    Console.WriteLine("Cantidad a ingresar");
-                    long ingresar = Convert.ToInt64(Console.ReadLine());
-                    Console.WriteLine("Se va ha ingresar un total de: " + ingresar);
-                    Console.WriteLine("¿Es correcta al cantidad?");
-                    string pregunta = Console.ReadLine();
                     if (pregunta.Equals("Si") || pregunta.Equals("si") || pregunta.Equals("SI"))
                     {
                         Console.WriteLine("Perfecto, se ha ingresado un total de " + ingresar);
@@ -130,26 +123,21 @@ namespace EjercicioProfe
                 {
                     Console.WriteLine("Error, vuelva a intentarlo");
                 }
-            }while (ingresado == true);
+            }while (ingresado != false);
         }
 
-        public static void Retirar()
+        public static void Retirar(Cuenta cuenta)
         {
             Boolean retirado = false;
+            Console.WriteLine("Cantidad a retirar");
+            long retirar = Convert.ToInt64(Console.ReadLine());
+            Console.WriteLine("Se va ha retirar un total de: " + retirar);
+            Console.WriteLine("¿Es correcta al cantidad?");
+            string pregunta = Console.ReadLine();
             do
             {
                 try
                 {
-                    string iban = "";
-                    string fechacrea = "";
-                    long saldo = 0;
-                    Cuenta cuenta = new Cuenta(iban, fechacrea, saldo);
-
-                    Console.WriteLine("Cantidad a retirar");
-                    long retirar = Convert.ToInt64(Console.ReadLine());
-                    Console.WriteLine("Se va ha retirar un total de: " + retirar);
-                    Console.WriteLine("¿Es correcta al cantidad?");
-                    string pregunta = Console.ReadLine();
                     if (pregunta.Equals("Si") || pregunta.Equals("si") || pregunta.Equals("SI"))
                     {
                         Console.WriteLine("Perfecto, se ha retirado un total de " + retirar);
@@ -176,23 +164,18 @@ namespace EjercicioProfe
             } while (retirado == true);
         }
 
-        public static void Transferir()
+        public static void Transferir(Cuenta cuenta)
         {
             Boolean transferido = false;
+            Console.WriteLine("Cantidad a transferir");
+            long transferir = Convert.ToInt64(Console.ReadLine());
+            Console.WriteLine("Se va ha transferir un total de: " + transferir);
+            Console.WriteLine("¿Es correcta al cantidad?");
+            string pregunta = Console.ReadLine();
             do
             {
                 try
                 {
-                    string iban = "";
-                    string fechacrea = "";
-                    long saldo = 0;
-                    Cuenta cuenta = new Cuenta(iban, fechacrea, saldo);
-
-                    Console.WriteLine("Cantidad a transferir");
-                    long transferir = Convert.ToInt64(Console.ReadLine());
-                    Console.WriteLine("Se va ha transferir un total de: " + transferir);
-                    Console.WriteLine("¿Es correcta al cantidad?");
-                    string pregunta = Console.ReadLine();
                     if (pregunta.Equals("Si") || pregunta.Equals("si") || pregunta.Equals("SI"))
                     {
                         Console.WriteLine("Perfecto, se ha transferido un total de " + transferir);
